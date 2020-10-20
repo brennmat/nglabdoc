@@ -1,0 +1,410 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mhchem}
+
+% Nagra publications:
+\providecommand{\nagraNIB}[1]{Nagra internal report NIB #1}
+\providecommand{\nagraAN}[1]{Nagra internal note AN #1}
+
+% Env. parameters:
+\providecommand{\Kd}{\ensuremath{K_{\rm d}}}
+\providecommand{\pH}{\ensuremath{p\text{H}}}
+\providecommand{\Eh}{\ensuremath{E_\text{h}}}
+
+% TAME parameters
+\providecommand{\TAMEPAR}[1]{{\ensuremath{\tt #1}}}
+%\providecommand{\TAMEPARFONT}{\tt}
+\providecommand{\Kmeat}{\TAMEPAR{K\_MEAT}}
+\providecommand{\Kmilk}{\TAMEPAR{K\_MILK}}
+\providecommand{\Kegg}{\TAMEPAR{K\_EGG}}
+
+\providecommand{\Kp}{\TAMEPAR{K\_P}}
+\providecommand{\Kg}{\TAMEPAR{K\_G}}
+\providecommand{\Kgv}{\TAMEPAR{K\_GV}}
+\providecommand{\Krv}{\TAMEPAR{K\_RV}}
+\providecommand{\Kfruit}{\TAMEPAR{K\_FRUIT}}
+\providecommand{\Kff}{\TAMEPAR{K\_FF}}
+
+\providecommand{\KDcoa}{\TAMEPAR{KD\_COA}}
+\providecommand{\KDfin}{\TAMEPAR{KD\_FIN}}
+\providecommand{\KDorg}{\TAMEPAR{KD\_ORG}}
+
+\providecommand{\RHOtop}{\TAMEPAR{RHO\_T}}
+\providecommand{\EPStop}{\TAMEPAR{EPS\_T}}
+
+% Other 'mathematical' parameters:
+\providecommand{\Kd}{\ensuremath{K_\rm{d}}}
+
+%: command definitions
+
+\providecommand{\vstretch}[1]{\vspace{\stretch{#1}}}
+\providecommand{\hstretch}[1]{\hspace{\stretch{#1}}}
+
+% ******* isotope shortcuts
+% these items should always appear in "text fonts"
+\providecommand{\isotope}[2]{\ensuremath{{^{\text{#2}}\text{#1}}}}
+        % #1: Name of the element
+        % #2: Mass          
+% \makeatother
+\providecommand{\itop}[2]{\isotope{#1}{#2}}
+
+
+\providecommand{\textindex}[1]{\ensuremath{_{\text{#1}}}}
+\providecommand{\IndexItem}[2]{\ensuremath{\text{#1}}\textindex{#2}}
+% these commands or not needed, really:
+\providecommand{\high}[1]{\textsuperscript{#1}}
+\providecommand{\up}[1]{\textsuperscript{#1}}
+\providecommand{\low}[1]{\textindex{#1}}
+\providecommand{\dwn}[1]{\textindex{#1}}
+
+% elements (with common indices):
+
+\providecommand{\He}{\ensuremath{\text{He}}}
+\providecommand{\HeI}[1]{\isotope{\He}{#1}}
+\providecommand{\Ne}{\ensuremath{\text{Ne}}}
+\providecommand{\NeI}[1]{\isotope{\Ne}{#1}}
+\providecommand{\Ar}{\ensuremath{\text{Ar}}}
+\providecommand{\ArI}[1]{\isotope{\Ar}{#1}}
+\providecommand{\Kr}{\ensuremath{\text{Kr}}}
+\providecommand{\KrI}[1]{\isotope{\Kr}{#1}}
+\providecommand{\Xe}{\ensuremath{\text{Xe}}}
+\providecommand{\XeI}[1]{\isotope{\Xe}{#1}}
+\providecommand{\tot}{tot}
+\providecommand{\md}{md} % 'maximum density', used e.g. for T_md
+\providecommand{\eq}{eq}
+\providecommand{\ASW}{ASW}
+\providecommand{\EA}{EA}
+\providecommand{\terr}{terr}
+\providecommand{\rad}{rad}
+\providecommand{\trit}{trit}
+\providecommand{\excess}{ex}
+\providecommand{\meas}{m}
+\providecommand{\pred}{p}
+\providecommand{\HeTot}{\IndexItem{\He}{\tot}}
+\providecommand{\NeTot}{\IndexItem{\Ne}{\tot}}
+\providecommand{\ArTot}{\IndexItem{\Ar}{\tot}}
+\providecommand{\KrTot}{\IndexItem{\Kr}{\tot}}
+\providecommand{\XeTot}{\IndexItem{\Xe}{\tot}}
+\providecommand{\HeEq}{\IndexItem{\He}{\eq}}
+\providecommand{\NeEq}{\IndexItem{\Ne}{\eq}}
+\providecommand{\ArEq}{\IndexItem{\Ar}{\eq}}
+\providecommand{\KrEq}{\IndexItem{\Kr}{\eq}}
+\providecommand{\XeEq}{\IndexItem{\Xe}{\eq}}
+\providecommand{\HeASW}{\IndexItem{\He}{\ASW}}
+\providecommand{\NeASW}{\IndexItem{\Ne}{\ASW}}
+\providecommand{\ArASW}{\IndexItem{\Ar}{\ASW}}
+\providecommand{\KrASW}{\IndexItem{\Kr}{\ASW}}
+\providecommand{\XeASW}{\IndexItem{\Xe}{\ASW}}
+\providecommand{\HeEA}{\IndexItem{\He}{\EA}}
+\providecommand{\NeEA}{\IndexItem{\Ne}{\EA}}
+\providecommand{\ArEA}{\IndexItem{\Ar}{\EA}}
+\providecommand{\KrEA}{\IndexItem{\Kr}{\EA}}
+\providecommand{\XeEA}{\IndexItem{\Xe}{\EA}}
+\providecommand{\HeRad}{\IndexItem{\He}{\rad}}
+\providecommand{\NeRad}{\IndexItem{\Ne}{\rad}}
+\providecommand{\ArRad}{\IndexItem{\Ar}{\rad}}
+\providecommand{\KrRad}{\IndexItem{\Kr}{\rad}}
+\providecommand{\XeRad}{\IndexItem{\Xe}{\rad}}
+\providecommand{\HeMeas}{\IndexItem{\He}{\meas}}
+\providecommand{\NeMeas}{\IndexItem{\Ne}{\meas}}
+\providecommand{\ArMeas}{\IndexItem{\Ar}{\meas}}
+\providecommand{\KrMeas}{\IndexItem{\Kr}{\meas}}
+\providecommand{\XeMeas}{\IndexItem{\Xe}{\meas}}
+\providecommand{\HePred}{\IndexItem{\He}{\pred}}
+\providecommand{\NePred}{\IndexItem{\Ne}{\pred}}
+\providecommand{\ArPred}{\IndexItem{\Ar}{\pred}}
+\providecommand{\KrPred}{\IndexItem{\Kr}{\pred}}
+\providecommand{\XePred}{\IndexItem{\Xe}{\pred}}
+\providecommand{\HeTerr}{\IndexItem{\He}{\terr}}
+\providecommand{\HeEx}{\IndexItem{\He}{\excess}}
+\providecommand{\HeEx}{\IndexItem{\HeVier}{\excess}}
+\providecommand{\XeEx}{\IndexItem{\Xe}{\excess}}
+
+%% isotopes (with common indices and ratios):
+%% first cheat a little to make upright greek deltas (non-math):
+%\InputIfFileExists{lgrenc.def}{% for greek text font
+%  \message{Loading the definitions for the Greek font encoding}}{%
+%  \errhelp{I can't find the lgrenc.def file for the Greek fonts}%
+%  \errmessage{Since I do not know what the LGR encoding means^^J
+%    I can't typeset Greek.^^J
+%    I stop here, while you get a suitable lgrenc.def file}\@@end
+% }
+%\def\greektext{%
+%  \fontencoding{LGR}\selectfont
+%  \def\encodingdefault{LGR}}
+%\def\textdelta{{\greektext d}}
+
+\providecommand{\HeDrei}{\HeI{3}}
+\providecommand{\HeThree}{\HeDrei}
+\providecommand{\HeVier}{\HeI{4}}
+\providecommand{\HeFour}{\HeVier}
+\providecommand{\RHeIsotopes}{\ensuremath{\HeDrei / \HeVier}}
+\providecommand{\NeZwanzig}{\NeI{20}}
+\providecommand{\NeTwenty}{\NeZwanzig}
+\providecommand{\NeEZwanzig}{\NeI{21}}
+\providecommand{\NeZZwanzig}{\NeI{22}}
+\providecommand{\NeTwentyTwo}{\NeZZwanzig}
+\providecommand{\RHeNeIsotopes}{\ensuremath{\HeVier / \NeZwanzig}}
+\providecommand{\ArSDreissig}{\ArI{36}}
+\providecommand{\ArTSix}{\ArSDreissig}
+\providecommand{\ArVierzig}{\ArI{40}}
+\providecommand{\ArFourty}{\ArVierzig}
+\providecommand{\KrVAchzig}{\KrI{84}}
+\providecommand{\KrSAchzig}{\KrI{86}}
+\providecommand{\KrESix}{\KrSAchzig}
+\providecommand{\XeHSDreissig}{\XeI{136}}
+\providecommand{\XeHTSix}{\XeHSDreissig}
+\providecommand{\Deuterium}{\isotope{H}{2}}
+\providecommand{\Tritium}{\isotope{H}{3}}
+\providecommand{\tritium}{\Tritium}
+\providecommand{\CarbonTwelve}{\isotope{C}{12}}
+\providecommand{\CarbonThirteen}{\isotope{C}{13}}
+\providecommand{\CarbonFourteen}{\isotope{C}{14}}
+\providecommand{\OxygenSixteen}{\isotope{O}{16}}
+\providecommand{\OxygenEighteen}{\isotope{O}{18}}
+%\providecommand{\deltaOxygenEighteen}{\ensuremath{\delta}\OxygenEighteen}
+%\providecommand{\deltaDeuterium}{\ensuremath{\delta}\Deuterium}
+\usepackage{upgreek}
+\providecommand{\uprightDelta}{\ensuremath{\updelta}}
+\providecommand{\deltaOxygenEighteen}{\uprightDelta\OxygenEighteen}
+\providecommand{\OxygenRatio}{\OxygenEighteen/\OxygenSixteen}
+\providecommand{\deltaDeuterium}{\uprightDelta\Deuterium}
+\providecommand{\deltaNitrogenFifteen}{\uprightDelta\isotope{N}{15}}
+\providecommand{\NitrogenRatio}{\isotope{N}{15}/\isotope{N}{14}}
+\providecommand{\deltaCarbonThirteen}{\uprightDelta\CarbonThirteen}
+\providecommand{\deltaCarbonFourteen}{\uprightDelta\CarbonFourteen}
+\providecommand{\TrHe}{\Tritium/\HeDrei}
+\providecommand{\HeTr}{\TrHe}
+\providecommand{\HeDreiVier}{\HeDrei/\HeVier}
+\providecommand{\HeDreiTot}{\IndexItem{\HeDrei}{\tot}}
+\providecommand{\HeDreiEq}{\IndexItem{\HeDrei}{\eq}}
+\providecommand{\HeDreiASW}{\IndexItem{\HeDrei}{\ASW}}
+\providecommand{\HeDreiEA}{\IndexItem{\HeDrei}{\EA}}
+\providecommand{\HeDreiTerr}{\IndexItem{\HeDrei}{\terr}}
+\providecommand{\HeDreiRad}{\IndexItem{\HeDrei}{\rad}}
+\providecommand{\HeDreiTrit}{\IndexItem{\HeDrei}{\trit}}
+\providecommand{\HeDreiEx}{\IndexItem{\HeDrei}{\excess}}
+\providecommand{\HeDreiMeas}{\IndexItem{\HeDrei}{\meas}}
+\providecommand{\HeDreiPred}{\IndexItem{\HeDrei}{\pred}}
+\providecommand{\HeVierTot}{\IndexItem{\HeVier}{\tot}}
+\providecommand{\HeVierASW}{\IndexItem{\HeVier}{\ASW}}
+\providecommand{\HeVierEq}{\IndexItem{\HeVier}{\eq}}
+\providecommand{\HeVierEA}{\IndexItem{\HeVier}{\EA}}
+\providecommand{\HeVierRad}{\IndexItem{\HeVier}{\rad}}
+\providecommand{\HeVierTerr}{\IndexItem{\HeVier}{\terr}}
+\providecommand{\HeVierEx}{\IndexItem{\HeVier}{\excess}}
+\providecommand{\HeVierMeas}{\IndexItem{\HeVier}{\meas}}
+\providecommand{\HeVierPred}{\IndexItem{\HeVier}{\pred}}
+\providecommand{\TritiumIni}{\IndexItem{\Tritium}{0}}
+\providecommand{\NeZwanzigTot}{\IndexItem{\NeZwanzig}{\tot}}
+\providecommand{\NeZwanzigEq}{\IndexItem{\NeZwanzig}{\eq}}
+\providecommand{\NeZwanzigASW}{\IndexItem{\NeZwanzig}{\ASW}}
+\providecommand{\NeZwanzigEA}{\IndexItem{\NeZwanzig}{\EA}}
+\providecommand{\NeZZwanzigTot}{\IndexItem{\NeZZwanzig}{\tot}}
+\providecommand{\NeZZwanzigEq}{\IndexItem{\NeZZwanzig}{\eq}}
+\providecommand{\NeZZwanzigASW}{\IndexItem{\NeZZwanzig}{\ASW}}
+\providecommand{\NeZZwanzigEA}{\IndexItem{\NeZZwanzig}{\EA}}
+\providecommand{\ArVierzigTot}{\IndexItem{\ArVierzig}{\tot}}
+\providecommand{\ArVierzigEq}{\IndexItem{\ArVierzig}{\eq}}
+\providecommand{\ArVierzigASW}{\IndexItem{\ArVierzig}{\ASW}}
+\providecommand{\ArVierzigEA}{\IndexItem{\ArVierzig}{\EA}}
+\providecommand{\ArVierzigRad}{\IndexItem{\ArVierzig}{\rad}}
+\providecommand{\ArVierzigTerr}{\IndexItem{\ArVierzig}{\terr}}
+\providecommand{\ArSDreissigTot}{\IndexItem{\ArSDreissig}{\tot}}
+\providecommand{\ArSDreissigEq}{\IndexItem{\ArSDreissig}{\eq}}
+\providecommand{\ArSDreissigASW}{\IndexItem{\ArSDreissig}{\ASW}}
+\providecommand{\ArSDreissigEA}{\IndexItem{\ArSDreissig}{\EA}}
+\providecommand{\HeRatio}{\HeDreiVier}
+\providecommand{\HeRatioTot}{\ensuremath{\left(\HeRatio\right)}\textindex{\tot}}
+\providecommand{\HeDreiVierTot}{\HeRatioTot}
+\providecommand{\HeRatioRad}{\ensuremath{\left(\HeRatio\right)}\textindex{\rad}}
+\providecommand{\HeDreiVierRad}{\HeRatioRad}
+\providecommand{\HeRatioTerr}{\ensuremath{\left(\HeRatio\right)}\textindex{\terr}}
+\providecommand{\HeDreiVierTerr}{\HeRatioTerr}
+\providecommand{\HeRatioEx}{\ensuremath{\left(\HeRatio\right)}\textindex{\excess}}
+\providecommand{\HeDreiVierEx}{\HeRatioEx}
+\providecommand{\NeRatio}{\NeZwanzig/\NeZZwanzig}
+\providecommand{\NeRatioTot}{\ensuremath{\left(\NeRatio\right)}\textindex{\tot}}
+\providecommand{\ArRatio}{\ArVierzig/\ArSDreissig}
+\providecommand{\ArRatioReverse}{\ArSDreissig/\ArVierzig}
+\providecommand{\ArRatioTot}{\ensuremath{\left(\ArRatio\right)}\textindex{\tot}}
+
+
+%: ******* phyical symbols, properties and variables (should always appear in "math-fonts")
+\providecommand{\sal}{\ensuremath{S}}
+\providecommand{\temp}{\ensuremath{T}}
+\providecommand{\depth}{\ensuremath{z}}
+\providecommand{\sDepth}{\depth}
+\providecommand{\wDepth}{\depth}
+\providecommand{\conc}[1][]{\ensuremath{C_{#1}}}
+\providecommand{\concEQ}[1][]{\ensuremath{C_{#1}^*}}
+\providecommand{\concASW}[1][]{\ensuremath{C_{#1}^*}}
+\providecommand{\dens}[1][]{\ensuremath{\rho_{#1}}}
+\providecommand{\pVal}{\ensuremath{p}}
+\providecommand{\pValC}{\ensuremath{p_c}}
+\providecommand{\pressure}{\ensuremath{P}}
+\providecommand{\Pressure}{\pressure}
+\providecommand{\partialPressure}[1][]{\ensuremath{\pressure_{#1}}}
+\providecommand{\atmosPressure}{\ensuremath{\pressure_{\text{atm}}}}
+\providecommand{\totPressure}{\ensuremath{\pressure_{\text{tot}}}}
+\providecommand{\vapourPressure}{\ensuremath{e_s}}
+\providecommand{\vaporPressure}{\vapourPressure}
+\providecommand{\HenryCoefficient}[1][]{\ensuremath{H_{#1}}}
+\providecommand{\HenryCoeff}{\HenryCoefficient}
+\providecommand{\isotopeAbund}[1][]{\ensuremath{R_{#1}}}
+\providecommand{\poros}{\ensuremath{\phi}} % oder: \providecommand{\poros}{\ensuremath{\varphi}}
+\providecommand{\waterContent}{\ensuremath{\theta}}
+\providecommand{\volFrac}[1][]{\ensuremath{v_{#1}}}
+\providecommand{\atomDiameter}[1][]{\ensuremath{d_{#1}}}
+%\providecommand{\Ceq}{\ensuremath{C^{\eq}}}
+%\providecommand{\Tmd}{\ensuremath{T_{\text{\md}}}}
+\providecommand{\Kz}{\ensuremath{K_\wDepth}} % vertical turbulent diffusion coefficient
+\providecommand{\Deff}[1][]{\ensuremath{D_{#1}}} % effective diffusion coefficient
+\providecommand{\Dmol}[1][]{\ensuremath{D_{#1}^0}} % molecular diffusion coefficient
+\providecommand{\Pe}{\ensuremath{Pe}} % Peclet number
+\providecommand{\ChiSquare}{\ensuremath{\chi^2}}
+
+%: ******* physical units (should always appear in "text-fonts")
+\providecommand{\stp}{\ensuremath{\text{STP}}}
+%\providecommand{\cc}{\ensuremath{\text{cm}^{\text{3}}}}
+\providecommand{\cc}{\ensuremath{\text{cm}^{\text{3}}}}
+%\providecommand{\cc}{\ensuremath{\text{cc}}}
+\providecommand{\ccSTP}{\ensuremath{\cc\textindex{\stp}}}
+\providecommand{\ccPerGrams}{\ensuremath{\cc / \text{g}}}
+\providecommand{\ccSTPPerGrams}{\ensuremath{\ccSTP / \text{g}}}
+\providecommand{\ccSTPperGrams}{\ccSTPPerGrams}
+\providecommand{\ccSTPperGram}{\ccSTPPerGrams}
+\providecommand{\ccSTPpPerGram}{\ccSTPPerGrams}
+\providecommand{\cubmSTP}{\ensuremath{\text{m}^{\text{3}}\textindex{\stp}}}
+\renewcommand{\deg}{\ensuremath{{}^\circ}}
+\providecommand{\degC}{\ensuremath{{}^\circ \text{C}}}
+\providecommand{\ppmV}{\ensuremath{\text{ppm$_{\rm vol}$}}}
+
+
+%: ******* tracers and chemicals
+\providecommand{\SFhex}{\ensuremath{\ce{SF6}}}
+\providecommand{\CFCs}{CFCs}
+\providecommand{\CFCel}{\ensuremath{\text{CFC-11}}}
+\providecommand{\CFCtwel}{\ensuremath{\text{CFC-12}}}
+\providecommand{\CFChthr}{\ensuremath{\text{CFC-113}}}
+\providecommand{\methane}{\ensuremath{\ce{CH4}}}
+\providecommand{\Methan}{\methane}
+\providecommand{\oxygen}{\ensuremath{\ce{O2}}}
+\providecommand{\Otwo}{\oxygen}
+\providecommand{\ozone}{\ensuremath{\ce{O3}}}
+% \providecommand{\nitrogen}{\ensuremath{\text{N\dwn{2}}}}
+\providecommand{\nitrogenTwo}{\ensuremath{\ce{N2}}}
+\providecommand{\Ntwo}{\nitrogenTwo}
+\providecommand{\hydrogenTwo}{\ensuremath{\ce{H2}}}
+\providecommand{\NtwoO}{\ensuremath{\ce{N2O}}}
+\providecommand{\NOx}{\ensuremath{\ce{NOx}}}
+\providecommand{\Sauerstoff}{\oxygen}
+\providecommand{\COtwo}{\ensuremath{\ce{CO2}}}
+\providecommand{\COthree}{\ensuremath{\ce{CO3}}}
+\providecommand{\water}{\ensuremath{\text{H\dwn{2}O}}}
+\providecommand{\HTO}{\ensuremath{\ce{HTO}}}
+\providecommand{\Wasserstoff}{\hydrogenTwo}
+%\providecommand{\hydrogen}{\Wasserstoff}
+\providecommand{\Htwo}{\hydrogenTwo}
+\providecommand{\SOtwo}{\ce{SO2}}
+\providecommand{\U}{\ensuremath{\ce{U}}}
+\providecommand{\Th}{\ensuremath{\ce{Th}}}
+
+
+%: ******* geographical: lake names etc.
+\providecommand{\geoname}[1]{\text{\it #1}}
+\providecommand{\LakeZurich}{\geoname{Lake Zurich}}
+\providecommand{\LakeZug}{\geoname{Lake Zug}}
+\providecommand{\LakeLucerne}{\geoname{Lake Lucerne}}
+\providecommand{\LakeLuc}{\LakeLucerne}
+\providecommand{\Issyk}{\geoname{\mbox{Issyk-Kul}}}
+\providecommand{\Issykul}{\Issyk}
+\providecommand{\LakeIssyk}{\geoname{Lake \Issyk}}
+\providecommand{\LakeIssykul}{\LakeIssyk}
+\providecommand{\ZUG}{\LakeZug}
+\providecommand{\LUC}{\LakeLucerne}
+\providecommand{\KUSS}{\geoname{K\"ussnacht Basin}}
+\providecommand{\KreuzTrichter}{\geoname{Kreuztrichter}}
+\providecommand{\Sopp}{\geoname{Soppensee}}
+\providecommand{\sopp}{\Sopp}
+\providecommand{\LakeTang}{\geoname{Lake Tanganyika}}
+\providecommand{\LakeTiti}{\geoname{Lake Titicaca}}
+\providecommand{\LakeBaikal}{\geoname{Lake Baikal}}
+\providecommand{\CaspianSea}{\geoname{Caspian Sea}}
+\providecommand{\BlackSea}{\geoname{Black Sea}}
+\providecommand{\LakeVan}{\geoname{Lake Van}}
+\providecommand{\LakeCardiel}{\geoname{Lake Cardiel}}
+
+%: ******* miscallaneous commands THESE WERE MOVE TO THE DISS-FILES
+%\providecommand{\chapterabstract}{\section*{Abstract}}
+
+%\makeatletter
+%\def\blankfootnote{\xdef\@thefnmark{}\@footnotetext}
+%\makeatother
+%% avoid errors due to hyperref-linking of unlabelled footnotes:
+%%\usepackage[hyperfootnotes=false]{hyperref}
+%\providecommand{\acknow}[1]{\blankfootnote{\emph{Acknowledgements:} #1}}
+
+% to typeset BiBTeX-entries with 'in press' (\prs) and 'in prep.' (\prp):
+\providecommand{\prp}{in prep.}
+\providecommand{\prs}{in press}
+
+\providecommand{\latin}[1]{{\it{#1}}}
+\providecommand{\insitu}{\latin{\mbox{in situ}}}
+\providecommand{\fig}{Fig.}
+\providecommand{\tab}{Tab.}
+\providecommand{\sect}{Sec.}
+\providecommand{\equat}{Eqn.}
+
+\providecommand{\chapref}[1]{\ref{chap:#1}}
+\providecommand{\secref}[1]{\ref{sec:#1}}
+\providecommand{\figref}[1]{\ref{fig:#1}}
+\providecommand{\tabref}[1]{\ref{tbl:#1}}
+\renewcommand{\eqref}[1]{(\ref{eqn:#1})}
+\providecommand{\chaplabel}[1]{\label{chap:#1}}
+\providecommand{\seclabel}[1]{\label{sec:#1}}
+\providecommand{\figlabel}[1]{\label{fig:#1}}
+\providecommand{\tablabel}[1]{\label{tbl:#1}}
+\providecommand{\eqlabel}[1]{\label{eqn:#1}}
+
+\providecommand{\figr}[1]{\fig\,\figref{#1}}
+\providecommand{\tabl}[1]{\tab\,\tabref{#1}}
+\providecommand{\secn}[1]{\sect\,\secref{#1}}
+\providecommand{\eqn}[1]{\equat\,\eqref{#1}}
+
+\providecommand{\work}[1]{\emph{(WORK: #1)}}
+
+\providecommand{\textfrac}[2]{\ensuremath{\frac{\text{#1}}{\text{#2}}}}
+
+%\providecommand{\E}[1]{\ensuremath{\text{10}^{\text{#1}}}}
+\providecommand{\E}[1]{\ensuremath{10^{#1}}}
+\providecommand{\Edot}[1]{\ensuremath{\cdot \E{#1}}}
+%\providecommand{\Etimes}[1]{\ensuremath{\times \E{#1}}}
+%\providecommand{\dotE}[1]{\Edot}
+%\providecommand{\timesE}[1]{\Etimes}
+\renewcommand{\th}{\textpower{th}}
+
+%\providecommand{\promille}{%
+%  \relax\ifmmode\promillezeichen
+%        \else\leavevmode\(\mathsurround=0pt\promillezeichen\)\fi}
+%\providecommand{\promillezeichen}{%
+%  \kern-.05em%
+%  \raise.5ex\hbox{\the\scriptfont0 0}%
+%  \kern-.15em/\kern-.15em%
+%  \lower.25ex\hbox{\the\scriptfont0 00}}
+\usepackage{wasysym}
+\providecommand{\promille}{\ensuremath{\permil}}
+\providecommand{\permille}{\promille}
+\providecommand{\percent}{\%}
+
+\providecommand{\micro}{\ensuremath{{\rm\mu}}}
+\newcommand{\micron}{\ensuremath{\mu{\rm m}}}
+
+\providecommand{\inch}{\raise.3ex\hbox{\tt{"}}}
+                             
+\providecommand{\emphitem}[2]{\item \emph{#1:} #2}
+
+% use cyrillic fonts:
+\def\cyr{\fontencoding{OT2}\fontfamily{wncyr}\selectfont}
+% this command needs the following:
+% \usepackage[OT2,OT1]{fontenc} 

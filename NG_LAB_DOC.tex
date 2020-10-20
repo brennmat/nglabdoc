@@ -1,0 +1,582 @@
+\documentclass[12pt]{book}
+
+\usepackage[british]{babel}
+\usepackage{times}
+\usepackage[applemac]{inputenc}
+\usepackage{url}
+\usepackage[margin=3cm]{geometry}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\input{MB_commands}
+
+\title{Noble-gas analysis for water heads at ETHZ}
+\author{Matthias Brennwald}
+\date{\today \\[2ex] \url{http://github.com/brennmat/nglabdoc}}
+
+
+\begin{document}
+
+\pagestyle{empty}
+\begin{center}
+\includegraphics[width=15cm]{noble_gases_for_dummies}
+\end{center}
+
+% make the cover:
+% http://www.images-graphics-pics.com/signs/books/dummies/cover.asp?pic=pointing&title=Noble+Gas+Analysis&text=Water+Machines&text3=Everything+you+don%27t+dare+to+ask+after+7+years+in+the+lab&text2=Read+the+book%2C+improve+our+lab!&book=DUMMIES&tag=1001&time=0235
+
+\maketitle
+
+\tableofcontents
+
+
+\pagestyle{plain}
+
+\chapter{Overview}
+This document is intended to provide some hands-on information on the handling and analysis of noble-gas samples in the ETH noble-gas lab. For a more theoretical description of the noble-gas analysis refer to \cite{Beyerle:2000}.\par
+
+Please be aware that this document is a work in progress and will be updated or changed as necessary. Please do not assume this information to stay the same for all time. Also, if you find errors or have suggestions for improvements of changes, please do not hesitate to inform the author about this. The latest version of this document available at \url{http://wut-ui.eawag.wroot.emp-eaw.ch/svn/NG_LAB_DOC/NG_LAB_DOC.pdf}.
+
+\chapter{Sample preparation}
+
+\section{Before sampling}
+Before sampling, a member of the UI group must be defined as the responsible person for administration of the samples. For projects within the UI group, the choice of this person will be obvious (investigator of the project). For external projects (PI is not a member of the UI group), a member of the UI group must be defined as the care taker before proceeding with the sampling. Basic information on such external samples must be recorded (on paper) in the folder `External Samples' (in MBs office).\par
+
+For external projects, the external PI is required to provide a short summary of the project to MB (about one page), covering the following points:
+\begin{itemize}
+\item What is the scientific background of the project?
+\item How many samples will be required?
+\item Can the external group provide manpower for the lab work?
+\item What is the anticipated output of the project, and how will the UI group be involved in this (e.g. publications, reports, etc.)?
+\end{itemize}
+Based on this information, we (the UI group) will then discuss if and how we want to participate in the project, \emph{and who will be the contact person in the UI group}.\par
+
+Sampling instructions\footnote{Instructions are available at \url{http://www.eawag.ch/forschung/wut/schwerpunkte/umweltisotope/methoden/probenahme_EN}} must be forwarded to the external group / PI  with the note that (i) sample quality will be in the responsibility of the external group / PI and (ii) commercial samples that cannot be analyzed properly due to poor sample quality will be charged the full price.\par
+
+\section{During sampling}
+A detailed list of sampling instructions is available online (\url{http://www.eawag.ch/forschung/wut/schwerpunkte/umweltisotope/methoden/probenahme_EN}). The most important points to remember during sampling are:
+\begin{itemize}
+\item Sample containers must be flushed extensively with sample water before closing the clamps
+\item Gas bubbles in the sampling system must be avoided
+\item The steel clamps need to be \emph{fully closed} to avoid leakage during transport and storage before gas extraction (i.e. washers are immobile).
+\end{itemize}
+\par
+
+\section{After sampling}
+Before analysis in the lab, the following sample information must to be entered in the Noblegas Database (\url{http://noblegas.aquatic-research.ch}), i.e.:
+\begin{itemize}
+\item Clamp ID (QID)
+\item Study ID (PNSID)
+\item Sample weights (before and after filling with water)
+\item Sampling date
+\item Name of contact person within the UI group (sampling info)
+\end{itemize}
+
+
+\chapter{Running samples with with Super Gnom and MM5400}
+
+\section{Preparing a new run}
+\subsection{Source settings at SuperGnom}
+\subsubsection{Low ionisation energy}
+Set electron energy from 100\,eV to 45\,eV to minimise double charged ions (e.g.\ for speleothem samples).
+
+\begin{enumerate}
+\item Read filament current (display to the right). Value is about 4.05\,A.
+
+\item Turn off filament by pushing the button once. Set the emission control to the value 17 (check if this value was written down the last time). Turn the filament back on until a + shows up. The filament current will rise to a value slightly higher than the one written down before.
+170\,mA is the current of electrons to be emitted. The filament current is then automatically adjusted to yield this electron emission (display just opposite).
+
+\item Switch to position 3: Turn the potientometer 3 counter clockwise to its stop (about -800 (80V).
+Potential wird heruntergesetzt, damit es sicher tiefer liegt als Filament (falls Filament in einem Loch liegt, dann heizt es weiter auf, weil man ja einen Strom von Elektronen  von 170mA eingestellt hat. Das kann dazu führen, dass das Filament kaputt geht)
+
+\item Switch to position 5. Turn potentiometer 5 counter clockwise to its stop (about -1000).
+Potential wird heruntergesetzt, damit es sicher tiefer liegt als Filament (falls Filament in einem Loch liegt, dann heizt es weiter auf, weil man ja einen Strom von Elektronen  von 170mA eingestellt hat. Das kann dazu führen, dass das Filament kaputt geht)
+
+\item Switch to position 8 (Filament, das will man ändern). Slowly turn potentiometer 8 until -450 (kann man relativ schnell machen)
+
+\item Switch to position 3. Slowly turn to the value written down the last time.
+
+\item Switch to position 5. Slowly turn to the value written down the last time. ACHTUNG: Watch the filament current, it must not reach values higher than the one wtritten down under step 1.
+Mit dem einstellen von 3 und 5 wird der Elektronenstrahl fokussiert auf das Loch in 6. Das Potential nimmt ab von 5 nach 6, dazwischen Filament als ‚ÄúBerg‚Äù. Von 6-7 ist es eher flach. Um zu überprüfen, wie gut der Strahl fokussiert ist, Strom an 4 ablesen und mit den 170mA vergleichen.
+
+\item Position 1 and 2 einstellen auf die Werte, die das letzte mal aufgeschrieben wurden. ODER Tunen und das so einstellen.
+
+\item Alle Werte aufschreiben (Achtung auf Trap on und off)
+Elektronenstrahl geht als Hohlzylinder vom Filament weg (dieses ist rund), er trifft bei 7 wieder als Hohlzylinder auf die Wände auf. Es gelangen also keine Elektronen durch den Spalt. Die Potentialverteilung geht von 5 bis 6 so steil wie die Spannung eingestellt ist. Von 6--7 ist es flach, bevor es steil runter geht für die Ionen. Am engsten in es ganz unten wo die Ionen austreten. 
+
+\item Falls man den Ionenstrahl tunen will:
+\begin{enumerate}
+\item Turbopumpe hochfahren und von der Vacion auf Turbo umstellen
+\item Ventile einstellen, so dass eingelassenes Gas nicht an getter geht und nicht abgepumpt wird.
+\item Fastcal einlassen, bis an Ventil 114.
+\item Close Pump Spektro (115)
+\item Open 114
+\item SCAN: Item usw. Einstellen, peak zentrieren
+\item TREND: Mit potentiometer 1 und 2 den Ionenstrahl lenken (eher einzeln als zusammen, dies würde einfach die Steigung verändern aber nicht unbedingt lenken). Hier kann man auch noch 3 und 5 dazunehmen, um das Signal zu verbessern
+\item Pumpe Spektro auf
+\item Ventile wieder richtig stellen und Pumpe umhängen und runterfahren.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsubsection{High ionisation energy}
+Set electron energy from 45\,eV to 100\,eV for higher sensitivity (e.g.\ for water samples).
+
+\begin{enumerate}
+\item Strom am Filament ablesen (Anzeige ganz rechts). Liegt bei etwa 4.05
+\item Switch to position 8 (Filament, das will man ändern). Turn potentiometer 8 until -1000
+\item Switch to position 3: Turn the potientometer 3 to the value written down the last time.
+\item Switch to position 5. Turn potentiometer 5 to the value written down the last time.
+\item Turn Filament off, by pushing the button once. Set the emission control to the value 25 (check if this value was written down the last time). Turn the filament back on until a + shows up. The filament current will rise to a value slighlty higher than the one written down before.
+\item Position 1 and 2 einstellen auf die Werte, die das letzte mal aufgeschrieben wurden. ODER Tunen und das so einstellen.
+\item Alle Werte aufschreiben (Achtung auf Trap on und off)
+\end{enumerate}
+
+
+\subsection{Sample information, stickers}
+Once all samples of a given run are available and recorded in the Noblegas Database, the STICKER file for use with IONIC and FINAL is exported from the database (menu Input/Output--Sticker HEGS). The sticker file is also printed to paper to keep track of the samples analysed during the run.
+
+The sticker of a given sample contains basic information about this sample. The sample weight (water) is arbitrarily set to 45.0\,g during export from the Noblegas Database. A typical sticker looks like this:
+\begin{verbatim}
+WA,116,137
+C14T 0m 24.11.1995
+45000.0,0.0,0.0,0.0
+0.0;0.0,0.0,0.0
+HeNe C14T 0m 24.11.1995
+\end{verbatim}
+
+\subsection{IONIC settings}
+CHECK SLUG NUMBERS OF CAL BOTTLES (SC, FC) AND ADJUST IF NECESSARY. USE BOOK AS REFERENCE. Prepare file paths (create directories on local disk and p drive). Sticker File dann auf dem Messcomputer unter File--Path--Stickerfile ablegen. Während dem Messen werden die entsprechenden Daten ins Messfile abgelegt.
+
+\section{Starting the machine}
+\begin{itemize}
+\item Set temperature of cryo trop to 70\,K (setpoint, type 70, enter)
+\item Start Computers for Super Gnom and MM5400, start Ionic on both computers (use the version on the server; the local copy is there to save your day if the server is down).
+\item Bring the Super Gnom turbo pump to full speed (button with the anchor-like pictogram)
+\item Pump the reservoirs, start with "water" until it reaches \E{-1}\,mbar (channel 3); then pump ``supergnom'' until it reaches \E{-1}\,mbar (channel 4).
+\item As soon as the reservoirs are pumped check the vacuum in the spectrometers, display below the MM5400, pressure should be $\sim$\E{-9}\,mbar (or better) for both Supergnom (channel 1) and MM5400 (channel 2); if the pressures are ok, disconnect the Vacion pumps and connect the Turbo pumps to the spectrometers. Note the pressure readings in the corresponding lab books.
+\item Prepare the pumping station: turn on “Membranpumpe”, assemble the cold trap and fill up nitrogen, plug in “Drehschieberpumpe”, pump the connection tube to the extraction line.
+\item Remove the oven from Zeo-2 and turn it off.
+\item Turn on filament of pressure gauge at the extraction line, check the pressure (should be \E{-7}\,mbar or better).
+\item Set valve controllers to `remote': turn off `LOC' buttons one after another. Then run run \verb+valve_init+ in Ionic to set initial valve conditions. Automatic valve conditions should now be as follows:
+\begin{itemize}
+\item Open: 002, 003, 004, 008, 010, 011, 012, 015, 108, 110, 111, 112, 115, 208, 209, 212, 213, 215
+\item All other valves closed
+\end{itemize}
+\item Cool Trap, Zeo-1 and cold trap at MM5400 inlet with liquid nitrogen.
+\item Open Getter 23.
+\item Close Valve 2.
+\item Turn on ``Föhn'' temperature controller (the power button of the ``Föhn'' itself should be on already).
+\item Turn off ion beam trap at the Super Gnom source controller.
+\item Record the filament currents of Super Gnom and MM5400 in the corresponding lab books.
+\item Turn off the heating the dilution reservoir (the switch is next to the switch for the water heater).
+\item Turn on the ovens for Trap, Zeo-1, and C15 using the switch (`hand' symbol) at the timer. Make sure C29 and C215 are hot.
+\end{itemize}
+
+\section{Operating the machine}
+\begin{itemize}
+\item Run the appropriate timer programs on the Super Gnom computer and follow the instructions of the timer:
+\begin{itemize}
+\item \verb+H2OS1.TIM+ for large water samples ($\sim$45\,g of water)
+\item \verb+H2OS2.TIM+ for smaller water samples ($\sim$23\,g of water)
+\item \verb+H2OS6.TIM+ for small samples ($\sim$1--10\,g of water, e.g.\ sediment pore water)
+\end{itemize}
+\item Keep track of the analysis results. Note the data in the corresponding lab books.
+\item Keep track of the analysis steps. Note the step types, step numbers and cal-slug numbers (fast cals, slow cals) in the corresponding lab book.
+\item Enter the analysis results in the SUBITO spereadsheet. Check the results to assess if the machine working as expected.
+\item Enter new sample information in the database (new weights, date of analysis, analysis notes).
+\end{itemize}
+
+\subsection{Attach new water sample}
+\subsubsection{Prepare new sample}
+\begin{itemize}
+\item Select sample from printed sample list
+\item Weigh sample (remove any stickers, paper, labels, etc.; make sure no screws are missing), note under “Full” in sample weights book
+% \item Give sample a Labcode, e.g.,WA, 401, 286 (WA = water, 401 = page number in sample book at which run ( e.g., NG182) started, 286 = engraved number on Quetsche)
+\item Cut off tip of the copper tube to obtain a clean flat copper surface
+\item Weigh sample again, note under “vor HEGS” in sample weights book
+\end{itemize}
+
+\subsubsection{Remove old sample from line}
+These steps have been done already after sample extraction (prompted by timer file):
+\begin{itemize}
+\item Close valve 12 (disconnect bellows and old sample from line)
+\item Unhook old sample and put to the floor, so that water can flow back into the copper tube
+\item Put back clamp  (a little further back from the original clamp spot) and close copper tube again (hold aluminum block with variable wrench and screw down large middle screw of clamp until washers are fully clamped)
+\item Put Quetsche on small stool for easier handling
+\item Loosen collet that fixes copper tube to extraction vessel and bellows (use special wrench and  wrench 22 for stability)
+\item Unscrew quetsche from aluminum bracket and remove (pull, turn) copper tube carefully from cylinder connection
+\item Let remaining water drip from the exctraction vessel before new sample is attached
+\end{itemize}
+
+\subsubsection{Attach new sample to line}
+\begin{itemize}
+\item Loosen black/grey handles if necessary
+\item Insert new sample into collet as straight as possible (use your third and fourth hands and maybe other extremities), should have a little play
+\item Close handles to fix Quetsche in bracket
+\item Close collet (RoKi: close only loosely to produce air flow when pumping down the ventilated part with membrane pump. Matthias: close firmly to pump down ventilated part with membrane pump)
+\item Connect membrane pump to pump down ventilated part of copper tube, extraction vessel and bellows (open yellow valve to membrane pump and Nupro valve towards the pump wagon). Pressure on H3 (read from channel 3 on Controller “Hinten”). should come down towards $\sim$20\,mbar, if not, try to tighten the ring connector a bit more
+\item Heat extraction vessel with heat gun to get rid of residual water
+\item Once the pressure is in the $\sim$20\,mbar range, switch from membrane to rotary pump (make sure it has enough N2). The rotary pump should bring the pressure down to $\sim$0.2\,mbar (H3)
+\item Once this pressure is reached on H3, the volume between valves 9, 4 and 12 can be pumped via the rotary pump, too, by opening valve 12.
+\item Now (prepare to) pump the sample connection via the backside’s turbo:
+\begin{itemize}
+\item Close Nupro leading towards the pump wagon
+\item Close automated valve 8 (Zeo-1 and Trap are pumped via this valve towards the backsides turbo) to avoid dirty gas expanding towards Teo, Trap.
+\item Open valve 3 to pump volume between 3 and 4 (Nupro) into turbo
+\item Then open valve 4 (Nupro) to connect bellows and cylinder to turbo pump.
+\item Check pressure on H4 (pirani on outside part of backside’s turbo) and speed of turbo pump. Should not change a lot.
+\item Open automatic 8 again, to pump Trap and Zeo-1 part of the line again
+\end{itemize}
+\end{itemize}
+
+
+\subsection{Attach new sediment sample (water aliquot)}
+
+\subsubsection{Prepare sediment sample}
+\begin{itemize}
+\item Select sample and determine suitable Swagelok connector parts that fit the copper tube (the tubes may have different diameters due to volume displacement during separation of aliquots)
+\item Attach copper tube to matching Swagelok/KF-16 adapter (i.e.\ the one with the right Swaglok thread dimensions). If Swagelok ferrule matches Cu tube well from the beginning, tighten Swagelok screw by hand, then use wrenches and tighten 1.25 turns. Otherwise, tighten more. Make sure not to distort copper tube.
+\item Weigh sediment sample with Swagelok/KF-16 adapter
+\end{itemize}
+
+\subsection{Attach sediment sample to line}
+\begin{itemize}
+\item Extraction vessel has CF-16/KF-16 junction attached instead of collet
+\item Clean both ends of the KF-16 (sediment sample and line side)
+\item Clean aluminum gasket (3rd drawer in desk)
+\item Put aluminum gasket between KF-16 connectors and close with (well greased) chain
+\item Make sure screws to open the sediment sample later on are well reachable
+\item Pump down cylinder and bellows according to the schedule for water samples
+\end{itemize}
+
+\subsection{Remove sediment sample from line}
+\begin{itemize}
+\item Other than for water samples, sediment samples need to be dried immediately after gas extraction, as the connectors are needed again for the following sample but the sample has to be weighted again with the connectors. 
+\item Thus, after disconnecting the bellows (close valve 12), one can start heating (with heat gun) the open sediment sample and pumping the evolving water vapor into the membrane pump (open Nupro towards pump wagon). Keep an eye on pressure on H3 in order to judge whether or not the copper tube is dry already.
+\item Once the sample is dry, it can be removed from the line by opening the chain (don’t forget to close Nupro to pump wagon)
+\item Weigh dry sediment sample with Swagelok/KF-16 adapter to obtain the water weight lost before removing the connector and attaching a new sample
+\end{itemize}
+
+
+\subsection{Extract water sample (and pore water aliquots)}
+\begin{itemize}
+\item Cylinder and bellows are pumped via Nupro 4 into the backside’s turbo pump (manually operated valve 12 open)
+\item In order to not loose gas the timer prompts you to close Nupro 4 before sample extraction.
+\item Valve 009 is closed (separates sample gas from Trap and Zeo-1)
+\item When timer asks to open the sample:
+\item Loosen clamp by holding the aluminum block with wrench 22 and unscrewing the large middle screw until clamp moves freely.
+\item Loosen aluminum bar (with handle 2), move it backwards, tighten it again to guarantee stability during shaking
+\item Open copper tube with special calliper (now sample gas distributes to Nupro 4 and automated valve 009 (switched to manual controller) 
+\item Open from manual controller automated valve 009, checking the pressure on channel 2 on Controller “Hinten”. The respective pirani is located directly behind valve 009 (labelled “H2”). ! This pirani mainly measures the water pressure which is then frozen out on Trap. According to Yvonne, acceptable pressures are in the range of 5-7 e-1 mbar on “H2” [a broken sample comes along with a pressure of 6 e0 mbars (H2) and has to be pumped off!!!
+\item Also control pressure on pirani labelled “V1” close to Zeo-1, where all the other active gases apart from water are captured. 
+\end{itemize}
+
+\subsection{Pump off broken sample}
+\begin{itemize}
+\item As 009 was open to check pressures, large amounts of atmospheric + sample gase of the broken sample have been admitted to Zeo-1 and Trap, where a part of it was already frozen out. Therefore, the line should not be pumped via the backside’s turbo molecular pump, but via the rotary pump first. Therefore:
+\item First: remove old, broken sample and attach a new one.
+\item Pump ventilated part of the new copper tube, cylinder, and bellows via the small Nupro first with the membrane, then with the rotary pump according to the respective manual.
+\item Once this is done, defrost Zeo-1 with water (p increases on V1 to 2e1 mbars) and then heat it to 180 °C and pump this into the rotary pump. As between “Trap” and automated valve 009 there is a small capillary that can get clogged, don’t pump via 009. Rather use the detour via automated valve 012 and close the backside’s turbo for this procedure. 
+\item Once Zeo-1 is hot, also the Trap can be pumped as described above. 
+\item Handling of valves for pumping gas from line:
+\begin{itemize}
+\item Automated valves 009, 011 (way to Zeo-2 blocked) and 013 (way to area ``outlet'' blocked) remain closed
+\item Make sure automated valve 010 is closed (way to calibrations and back to Trap etc. is blocked)
+\item make sure manually operated valve 17 (way to frontside’s turbo is blocked) is closed
+\item Close manually operated valve 1 (block way to backside’s turbo)
+\item Open automated valves 012 and 008
+\item Open manually operated valves 3, 4, 12, Nupro to rotary pump: pump for ~1 h, then go on with new sample.
+\end{itemize}
+\end{itemize}
+
+
+\section{Stopping the machine}
+\begin{itemize}
+\item Turn off the compressor of the cryo trap and heat the cryo trap to room temperature (can be done during the last measurement when the cryo trap is not needed anymore, i.e. after ``mute compressor''). Then set temperature to 100\,K. Make sure the timer will turn on the compressor early in the morning of the next day, so the cryo will get cooled to 100\,K.
+\item Put the oven on Zeo-2 and turn it on.
+\item Check the pressure in the spectrometers, should be $\sim$\E{-9}. Record values in corresponding lab books.
+\item Attach the two spectrometers from the Turbo to the Vacion pump Reservoir (unten) einstellen, press the button with the anchor-like pictogram.
+\item Close Getter 23.
+\item Turn of the pumping station at the gas inlet (membrane and rotary pumps), open the cold trap.
+\item Turn on ion beam trap at Super Gnom.
+\item Put the valves on Local one after another, close Ionic and turn off the computers. Automatic valve conditions should now be as follows:
+\begin{itemize}
+\item Open: 002, 004, 006, 008, 010, 011, 012, 015, 108, 110, 111, 112, 115, 209, 210, 212, 214, 215
+\item All other valves closed
+\end{itemize}
+
+
+\item Close all connections between fore vacuum pumps and reservoirs (fore pumps will stop automatically after a while).
+\item Turn off water heater.
+\item Open valve 2.
+\item Turn off “Föhn” temperature controller.
+\end{itemize}
+
+\section{Other notes}
+
+\subsection{Valve setting to activate large getter}
+There are several reasonable valve settings if the large getter needs to be activated/ heated, the following is one of them:
+\begin{itemize}
+\item Turn off heating of C29 and C215
+\item Set valves to standby conditions (``local'')
+\item Close 112, 21 (manual), 212, 214, 004, 29 (manual)
+\item Open 17 (manual), 001, 013, 213, 114 (i.e.\ manyfold pumped via SG vacion), 208
+\end{itemize}
+
+\chapter{Running samples with Tom Dooley}
+
+\section{Preparing a new run}
+
+\section{Starting the machine}
+\subsection{Extraction line and cryo trap}
+\begin{itemize}
+    	\item Sicherstellen, dass V3 geöffnet ist
+	\item Membran- und Drehschieberpumpen bei Extraktionslinie in Betrieb nehmen (falls sie nicht sowieso laufen)
+	\item Kühlfallen mit LN vorkühlen (T, Z1, Z2)
+	\item Kryostat auf 14\,K runterfahren
+	\item Ventilsteuerung von local auf remote
+	\item Check if getter is hot (280°C)
+\end{itemize}
+
+\subsection{Mittelteil}
+\begin{itemize}
+	\item V2, V4 und V11 schliessen (Clean und Dirty trennen)
+	\item Oben V1 und V4 schliessen (unbenutzte Verbindungslinien abhängen)
+	\item Vorvakuum der Turbos (Clean, Dirty) pumpen, dann von Vacion auf Turbo umhängen
+\end{itemize}
+
+\subsection{Massenspektrometer}
+\begin{itemize}
+	\item Getter MS auf 0 Volt
+	\item V3 (und V1, falls nicht schon zu) am Manyfold schliessen (V2 und V6 sollen offen sein)
+	\item C1 mit LN kühlen
+	\item MS Turbo hochfahren, Vorvakuum öffnen (roter Knopf leuchtet)
+	\item Ventilsteuerung auf remote. Am Computer zuerst Valve-Close-All (damit Ionic den Zustand der Hähne kennt), dann Anfangsbedingungen vom Timer setzen lassen (dabei wird das MS von Vacion auf Turbo umgehängt!).
+	\item Trap ausschalten (rotes Lämpchen aus)
+	\item Ventilsteuerung von local auf remote
+\end{itemize}
+
+\section{Operating the machine}
+\ldots
+
+\section{Stopping the machine}
+
+\subsection{Extraktionslinie und Kryostat}
+\begin{itemize}
+	\item Kompressor ausschalten, Kryo auf Raumtemperatur hochfahren, danach Temperatur auf 100\,K stellen (Zeitschaltuhr überprüfen, Kompressor sollte früh am nächsten Morgen eingeschaltet werden)
+	\item Kühlfallen separat (!) auftauen und pumpen. Dabei Wasser aus Trap (T) zunächst mit Membranpumpe auspumpen (V3, Va108, Va109 schliessen). Später Trap und Zeo-1 zuerst mit Drehschieberpumpe am Schluss mit Turbopumpe pumpen und V3 wieder öffnen.
+	\item Unbenutzte Membran- und Drehschieberpumpe ausschalten.
+	\item Ventilsteuerung von remote auf local
+\end{itemize}
+
+
+\subsection{Massenspektrometer}
+\begin{itemize}
+	\item Trap MS einschalten (rotes Lämpchen ein)
+	\item C1 auftauen: zuerst V6 schliessen (Getter abhängen), dann C1 mit Wasser auftauen und Dreck zum Mittelteil pumpen (nicht via MS pumpen), danach V6 wieder öffnen
+	\item Getter MS auf 70 Volt
+	\item V3 (und V6) öffnen
+	\item Ventilsteuerung von remote auf local (dabei wird das MS von Turbo auf Vacion umgehängt!)
+	\item MS Turbo runterfahren, Vorvakuum schliessen
+\end{itemize}
+
+\subsection{Mittelteil}
+\begin{itemize}
+	\item Auf Vacion umhängen, Vorvakuum der Turbos schliessen
+	\item V2, V4 und V11 öffnen
+	\item Oben Hähne V1 und V4 öffnen (unbenutzte Verbindungslinien pumpen)
+\end{itemize}
+
+
+
+
+\chapter{Noble gas analysis with FINAL for Water samples, Gas samples and Speleos}
+\author{Yvonne Scheidegger, Ryan North}
+
+\section{Run files}
+Each step corresponds to a measurement file, eg: NG47C008.hn
+\begin{itemize}
+\item Run-Marking (here: NG for water analysis; GA for Gas analysis)
+\item Run-Number (here: 47)
+\item Datafile Type (here: C):
+	\begin{itemize}
+	\item C for slow cals
+	\item F for fast cals
+	\item S for samples
+	\item B for blanks
+	\end{itemize}
+\item Step-Number (3 digits)
+\item Measured Ion (File-Suffix):
+	\begin{itemize}
+	\item HE: He (He-3, He-4), measured with MM5400
+	\item HN: He (He-4), Ne (Ne-20, Ne-22), measured with SuperGnom
+	\item AKX: Ar (Ar-36, Ar-40), Kr (Kr-86) und Xe (Xe-136), measured with SuperGnom
+	\end{itemize}
+\end{itemize}
+
+\section{Evaluation with FINAL}
+The program FINAL links the slow  cals, fast cals, and sample measurements. The output from FINAL is the noble gas concentrations based on the weight of each sample in the stickers (always 45.0 \ g!). These concentrations are later read into the database and adjusted accordingly as the actual weights.
+
+\subsection{Software Requirements}
+\begin{itemize}
+\item FINAL
+\item DIGEST
+\item ASCII-Text-Editor (e.g. Notepad)
+\item Excel Documents
+\item Web browser (to access the Noble Gas Database)
+\end{itemize}
+Information needed for the analysis programs are available under \url{smb://eaw-dept/wut$/UI_Group/NG_Labor/}.
+
+\subsection{Required documents and files}
+\begin{itemize}
+\item Copies of the test files found on the measurement computers (SuperGnom, MM5400). It is best to copy the entire folder of each respective runs. The BAK files can be deleted. Note: the backup data from the P-drive (ETH-server) cannot be used because these files were not processed with DIGEST.
+\item Copies of laboratory notebooks (laboratory sample weights from the red book, empty weights from the gray book, run results from SuperGnom and MM5400, Machine Book)
+\item Subitofile for the corresponding runs
+\end{itemize}
+
+
+\subsection{Preparing Measurement files for FINAL}
+\begin{itemize}
+\item Remove, with the help of observations in the measurement protocols, all the results that cannot be used and store them in a junk folder.
+\item For the analysis with FINAL, all files must be processed in  DIGEST, and the result must be stored in the test files as the FINAL-line at the end of the data file. FINAL files with missing lines are identified by an uppercase file suffix. Open and save these files with DIGEST.
+\item All measurement files that are to be used for evaluating the program should be opened in TextPad to make sure the stickers are present. If `sticker is missing ', copy the sticker from another file. Each line must start with 'sticker'!
+\item Measurement files from a slow-Cal must be prepared for analysis in the same way as a sample. First copy the files and process as a 'sample': change the step number (just add 2 new at the end), change to TYPE 'S' , insert 'dummy' stickers.
+\end{itemize}
+
+\section{Data Processing with FINAL}
+
+Start FINAL and create a new FINAL file (File -- New) and save (e.g., for run NG47, NG47.fin). Then import the stickers from the sticker-File (File -- Import sticker). For speleos: stickers files for blanks are read as sp, 0,1 / sp, 0,2 and so on.\par
+
+Then read and process one file type after the other: *.HE, *. HN, *. AKX. Import with File -- open data files (e.g., to open all .HN files enter *.HN  and click ok). With the first files to be imported, a new run is opened.
+
+When importing the following steps must be executed (eg HN):
+\begin{itemize}
+\item create HN
+\item no interference (at least for water and gas analysis)
+\item References (Reference isotopes). Example: 20NeF, 4HeF (or those who should be; each collector and each element requires a reference isotope).
+%¬•	Short click through to make sure everything is consistent with stickers, etc.
+\end{itemize}
+In case of error messages (e.g. "missing items") check the faulty measurement files and correct any errors (e.g. add missing stickers or evaluation blocks)
+
+For water and gas samples, link the measurements (C, S) with the fast cals (F) (for all measured items, except 'dirty' measurements such as 40ArC in HN):
+
+\begin{itemize}
+\item Menu Sensitivity--Plot FC Pairs. These plots show the sensitivity values over time. Fastcals are black lines with error bars. Cals and samples are points. With these plots determine whether the run should be split if there are still incorrect (too high etc.) measurements.
+\item Click the right mouse button on the plot and under "FC pairing ..." open the window to enter the fast-cal links.
+\item By default, each measurement (S, C) is linked with the preceeding and following fastcal. Exception: the last measurement of each day will  only be associated with the previous fastcal.
+\item Mass discrimination (if  several isotopes of the same element were measured on the same collector). The sensitivity is not the same for all isotopes and must be corrected. On the menu Discrimination -- Plot, plot the discrimination values used for the correction of the masses. Only slow-cals are used as the Fastcals were prepared from degassed water and because the conditions are not the same as air and are also not exactly known . Click the right mouse button on the plot and choose Undelete All, then select Delete all FastCals.
+\end{itemize}
+
+If no fastcals are needed (e.g. Speleos) select Menu Sensitivity -- FC usage, to deselect FC usage.
+
+Then the (fastcal-corrected) slow cals are assessed:
+\begin{itemize}
+\item Select Menu Plot--FC/SC Ratios. This shows the sensitivity determined using the (fastcal-corrected) slow cals. Except for minor statistical variability all slow cals should have the same results sensitivity (justified outliers can be excluded with the right mouse button). Check using the 'Average' error. If it is too high, then split the run? Defective slow cal? As an example, the errors from Run 143: He 0.28\%, Ne 0.4\%, Ar 0.4\%, Kr 0.86\%, Xe 1.37\%, 3He 1.2\%, 4He 0.9\% (but larger deviations in the range of 1\% are quite acceptable).
+\end{itemize}
+
+%For water and gas samples
+%	For speleos
+%In den FC Pair Plots rechte Maustaste auf Pairing. 
+
+%¬•	Create default 2 Fastcals -> click default (kombiniert jede Probe mit 2 Fastcals)
+%¬•	Dann jeder Messung die entsprechenden FC zuweisen (anklicken und combine drücken). ACHTUNG, nie die Fastcal vom nächsten Tag für die letzte Probe am Abend verwenden. 
+%¬•	Die Massendiskrimination (falls von einem Element 2 Isotope auf demselben Auffänger gemessen werden. Gleich viele Teilchen verursachen nicht dasselbe Signal) muss korrigiert werden. Dazu im Menü auf  Discrimination -> Plot. Es sollen nur die Slowcals benutzt werden, da die Falscals aus entgastem Wasser hergestellt wurden und da die Verhältnisse nicht genauso wie Luft sind und auch nicht so genau bekannt sind). Rechte Maustaste -> Undelete All, Delete all FastCals.
+
+%Hier kann man auch noch einige Fastcals nicht verwenden.  In der rechten Spalte doppelklicken. 
+
+%Genauso vorgehen für alle Isotopen!
+%	Unter Menu Sensitivity -> FastCal usage: deselect Kästchen für all Auffänger
+
+Now the data from FINAL can be exported in an ASCII data file:
+\begin{itemize}
+\item In the main window click on "export".
+\item Select "Format long: include all fields".
+\item Save data table (e.g.\ as NG47.res).
+\item change the file extension .res to .xls and open the xls file in Excel.
+\end{itemize}
+
+
+
+\section{Excel}
+For water and gas samples:
+\begin{itemize}
+\item Import the results into the Noble Gas Database at \url{http://noblegas.aquatic-research.ch}. To this end, use the file "FINAL-to-NGDB.xls, which is available at \url{smb://eaw-dept/wut$/UI_Group/NG_Labor/}).
+\item If necessary one must divide the AKX values by the number of slugs from the AKX reservoir.
+\item Multiply the concentration results determined with FINAL by the water amount assumed with FINAL (usually 45.00~g) to obtain gas amounts for import to the database.
+\item A template with a complete list of the data fields allowed for import to the database is available in database application under Runs / Import.
+\end{itemize}
+
+Save the data for import to the Noble Gas Database as CSV file.
+
+
+\section{Noble Gas Database}
+\begin{itemize}
+\item Import the CSV file (Runs / Import).
+\item For all samples check weights,  measurement date, etc.\ in the database. Input for gas samples and speleos the weights and the error manually in the database.
+\item Check the noble gas results in the database! If something is not right, first check the sample weights. Then check the data processing.
+\end{itemize}
+
+\section{Validation}
+A Cal evaluated as a sample. Convert the gas values from FINAL into an amount and compare with the corresponding values of the standard amounts.
+
+For example, for Water (6 AKX-slugs from slow cal!): FINAL-value / (dil.factor\up{cal.n.})$\times$45.00.  AKX is further divided by 6.
+
+\section{Clean-Up}
+\begin{itemize}
+\item Save all files and folders used for data processing as a ZIP archive under \url{smb://eaw-dept/wut$/UI_Group/NG_Labor/Runs}.
+\item Place copies of laboratory notebooks (SuperGnom, MM5400, book machines, weights) and notes on the evaluation in the appropriate folder (Roki's office).
+\end{itemize}
+
+\chapter{Tritiumauswertung für Wasserproben}
+\author{Matthias Brennwald}
+
+
+
+\section{Messfiles}
+Struktur der Messdaten ist analog zu Edelgasmessungen.
+
+\section{Auswertung}
+Samples, Blanks und Slowcals werden mit Hilfe einer Excel-Tabelle miteinander verknüpft. Das Ergebnis dieser Verknüpfung ist die Menge von tritiogenem \HeDrei\ jeder Probe. Diese Werte werden dann in die Noble Gas Database importiert, wo die entsprechenden \Tritium-Konzentrationen anhand der Lagerzeit und des Wassergewichts berechnet werden.
+
+\subsection{Benötigte Software}
+\begin{itemize}
+\item DIGEST
+\item ASCII-Text-Editor (z.B. Notepad)
+\item Lowtri3.exe
+\item Excel oder LibreOffice
+\item Web browser (to access the Noble Gas Database)
+\end{itemize}
+Die für die Auswertung benötigten Programme und Dateien sind unter \url{smb://eaw-dept/wut$/UI_Group/NG_Labor/} verfügbar.
+
+\subsection{Benötigte Unterlagen und Dateien}
+\begin{itemize}
+\item Kopien der Messfiles auf dem Messcomputer (Tom Dooley), analog zur Edelgasauswertung
+\item Kopien der Laborjournale (Probengewichte aus dem roten Laborbuch, Leergewichte aus dem grauen Buch, Messprotkolle und Maschinenbuch von Tom Dooley)
+\end{itemize}
+
+
+\subsection{Messfiles für Excel-Tabelle vorbereiten}
+\begin{itemize}
+\item Mit Hilfe der Bemerkungen aus den Messprotokollen alle für die Auswertung nicht zu verwendenden Messfiles aus den Ordnern entfernen und in einen `Schrott'-Ordner ablegen.
+\item Für die Auswertung müssen alle files im DIGEST prozessiert worden sein, und das Ergebnis muss in den Messfiles als FINAL-Zeile am Ende des Datenfiles abgespeichert sein. Dateien mit fehlenden FINAL-Zeilen sind an File-Suffixes in Grossbuchstaben erkennbar. Diese files mit DIGEST öffnen und abspeichern.
+\item Alle Messfiles, die für die Auswertung verwendet werden sollen mit Notepad oder ähnlichem Texteditor öffnen und kontrollieren, ob die Sticker eingetragen sind und ggf.\ korrigieren.
+\item Alle zu verwendenden Messfiles mit Lowtri3.exe prozessieren. Dies ergibt eine ASCII-Tabelle, in der alle Messungen (Samples, Cals, Blanks) zusammengefasst sind. Diese Tabelle mit Excel oder OpenOffice öffnen und nach Step-Nummer sortieren.
+\end{itemize}
+
+\section{Datenverarbeitung mit Excel-Tabelle}
+...
+
+\section{Noble Gas Database}
+(Import gas amounts analogous to noble gas section)
+
+\section{Aufräumen}
+\begin{itemize}
+\item Alle Dateien und Ordner als ZIP-Archiv unter \url{smb://eaw-dept/wut$/UI_Group/NG_Labor/Runs} ablegen.
+\item Kopien der Laborjournale (Messprotokolle, Maschinenbuch, Gewichte, etc.) und Notizen zu der Auswertung im dafür vorgesehenen Ordner (in RoKi's Büro) ablegen.
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{MB_Literatur}
+
+
+\end{document}
