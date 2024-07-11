@@ -131,9 +131,10 @@ Set electron energy from 45\,eV to 100\,eV for higher sensitivity (e.g.\ for wat
 \item Alle Werte aufschreiben (Achtung auf Trap on und off)
 \end{enumerate}
 
+\subsection{Database, Sample information, stickers}
+Create a new noble-gas run in the Noble Gas Database. The run name is as <TT><NNN>, where the run type TT is either WA for water samples or GA for gas samples. The run number NNN is determined by incrementing the number of the last noble-gas or tritium run. The ``page number'' used to set up the run in the database is the page number of the weights book where the sample weights of the run are recorded.\par
 
-\subsection{Sample information, stickers}
-Once all samples of a given run are available and recorded in the Noblegas Database, the STICKER file for use with IONIC and FINAL is exported from the database (menu Input/Output--Sticker HEGS). The sticker file is also printed to paper to keep track of the samples analysed during the run.
+Add all samples to the run, and export the STICKER file from the database. Print the sticker file to paper to keep track of the samples analysed during the run.
 
 The sticker of a given sample contains basic information about this sample. The sample weight (water) is arbitrarily set to 45.0\,g during export from the Noblegas Database. A typical sticker looks like this:
 \begin{verbatim}
@@ -273,7 +274,7 @@ These steps have been done already after sample extraction (prompted by timer fi
 
 \subsection{Pump off broken sample}
 \begin{itemize}
-\item As 009 was open to check pressures, large amounts of atmospheric + sample gase of the broken sample have been admitted to Zeo-1 and Trap, where a part of it was already frozen out. Therefore, the line should not be pumped via the backside’s turbo molecular pump, but via the rotary pump first. Therefore:
+\item As 009 was open to check pressures, large amounts of atmospheric + sample gases of the broken sample have been admitted to Zeo-1 and Trap, where a part of it was already frozen out. Therefore, the line should not be pumped via the backside’s turbo molecular pump, but via the rotary pump first. Therefore:
 \item First: remove old, broken sample and attach a new one.
 \item Pump ventilated part of the new copper tube, cylinder, and bellows via the small Nupro first with the membrane, then with the rotary pump according to the respective manual.
 \item Once this is done, defrost Zeo-1 with water (p increases on V1 to 2e1 mbars) and then heat it to 180 °C and pump this into the rotary pump. As between “Trap” and automated valve 009 there is a small capillary that can get clogged, don’t pump via 009. Rather use the detour via automated valve 012 and close the backside’s turbo for this procedure. 
@@ -330,63 +331,67 @@ There are several reasonable valve settings if the large getter needs to be acti
 \section{Starting the machine}
 \subsection{Extraction line and cryo trap}
 \begin{itemize}
-    	\item Sicherstellen, dass V3 geöffnet ist
-	\item Membran- und Drehschieberpumpen bei Extraktionslinie in Betrieb nehmen (falls sie nicht sowieso laufen)
-	\item Kühlfallen mit LN vorkühlen (T, Z1, Z2)
-	\item Kryostat auf 14\,K runterfahren
-	\item Ventilsteuerung von local auf remote
-	\item Check if getter is hot (280°C)
+  \item Confirm V3 is open
+	\item Start membrane rotary vane pumps (don't forget LN2 at RV pump)
+	\item Cool cold traps T, Z1 and Z2 with LN2
+	\item Set cryo trap temperature to 14\,K
+	\item Set valve controller from local to remote
+	\item Confirm getter is hot (280°C)
 \end{itemize}
 
-\subsection{Mittelteil}
+\subsection{Rock extraction line}
 \begin{itemize}
-	\item V2, V4 und V11 schliessen (Clean und Dirty trennen)
-	\item Oben V1 und V4 schliessen (unbenutzte Verbindungslinien abhängen)
-	\item Vorvakuum der Turbos (Clean, Dirty) pumpen, dann von Vacion auf Turbo umhängen
+	\item Close V2, V4 and V11 at the box (this separates clean und dirty lines)
+	\item Close V1 and V4 above the box (disconnect unused lines)
+	\item Pump fore-vacuum of turbo pumps (clean and dirty), then change from vacion to turbos
 \end{itemize}
 
-\subsection{Massenspektrometer}
+\subsection{Mass spectrometer}
 \begin{itemize}
-	\item Getter MS auf 0 Volt
-	\item V3 (und V1, falls nicht schon zu) am Manyfold schliessen (V2 und V6 sollen offen sein)
-	\item C1 mit LN kühlen
-	\item MS Turbo hochfahren, Vorvakuum öffnen (roter Knopf leuchtet)
-	\item Ventilsteuerung auf remote. Am Computer zuerst Valve-Close-All (damit Ionic den Zustand der Hähne kennt), dann Anfangsbedingungen vom Timer setzen lassen (dabei wird das MS von Vacion auf Turbo umgehängt!).
-	\item Trap ausschalten (rotes Lämpchen aus)
-	\item Ventilsteuerung von local auf remote
+	\item Getter MS to 0\,V
+	\item Close V3 (and V1 if not already closed) at manyfold. Confirm V2 and V6 are open.
+	\item Cool C1 with LN
+	\item Confirm tubo is running at full speed, open fore-vacuum
+	\item Set valve controller from local to remote. Computer / Ionic: Valve-Close-All, then set initial conditions using the timer file (this changes the MS pump from vacion to turbo!).
+	\item Turn off MS trap (red LED is off)
 \end{itemize}
 
 \section{Operating the machine}
-\ldots
+Basic operation is controlled by the Ionic timer script (\emph{check filename: H2OLT.TIM}). Run the timer and follow the instructions shown on the screen.
+
+\subsubsection{Gas extraction}
+Always check the pressure readings in the extraction line during sample extraction. With a clean sample, P3 should read approx.~0.7\,mbar (water vapour pressure) and P4 should read less than 5E-4\,mbar. Otherwise, there's too much gas (leaky or gassy sample) and you should stop extraction and clean the extraction line:
+\begin{itemize}
+\item ...(add Sebis draft here, but needs checking in the lab)...
+\end{itemize}
 
 \section{Stopping the machine}
 
-\subsection{Extraktionslinie und Kryostat}
+\subsection{Extraction line and cryo trap}
 \begin{itemize}
-	\item Kompressor ausschalten, Kryo auf Raumtemperatur hochfahren, danach Temperatur auf 100\,K stellen (Zeitschaltuhr überprüfen, Kompressor sollte früh am nächsten Morgen eingeschaltet werden)
-	\item Kühlfallen separat (!) auftauen und pumpen. Dabei Wasser aus Trap (T) zunächst mit Membranpumpe auspumpen (V3, Va108, Va109 schliessen). Später Trap und Zeo-1 zuerst mit Drehschieberpumpe am Schluss mit Turbopumpe pumpen und V3 wieder öffnen.
-	\item Unbenutzte Membran- und Drehschieberpumpe ausschalten.
-	\item Ventilsteuerung von remote auf local
+	\item Turn off compressor, heat cryo trap to room temperature, then change set temperature to 100\,K. Check timer is set to turn on compressor early morning of next day.
+	\item Separate cold traps (close V3, Va108, Va109), then heat cold traps (hot water, then ovens). First remove water from T with membrane pump. Then pump T and Z1 with RV pump. Then change to turbo and open V3.
+	\item Turn off membrane and RV pumps
+	\item Set valve controller from remote to local
 \end{itemize}
 
 
-\subsection{Massenspektrometer}
+\subsection{Mass spectrometer}
 \begin{itemize}
-	\item Trap MS einschalten (rotes Lämpchen ein)
-	\item C1 auftauen: zuerst V6 schliessen (Getter abhängen), dann C1 mit Wasser auftauen und Dreck zum Mittelteil pumpen (nicht via MS pumpen), danach V6 wieder öffnen
-	\item Getter MS auf 70 Volt
-	\item V3 (und V6) öffnen
-	\item Ventilsteuerung von remote auf local (dabei wird das MS von Turbo auf Vacion umgehängt!)
-	\item MS Turbo runterfahren, Vorvakuum schliessen
+	\item Turn on trap (red LED is on)
+	\item Close V6 (separate getter), then heat C1 with warm water to release dirt to rock-extraction box (don't pump via MS), then open V6 again
+	\item Getter MS to 70\,V
+	\item Open V3
+	\item Set valve controller from remote to local (this changes the MS pump from turbo to vacion).
+	\item Close fore-vacuum
 \end{itemize}
 
-\subsection{Mittelteil}
+\subsection{Rock extraction line}
 \begin{itemize}
-	\item Auf Vacion umhängen, Vorvakuum der Turbos schliessen
-	\item V2, V4 und V11 öffnen
-	\item Oben Hähne V1 und V4 öffnen (unbenutzte Verbindungslinien pumpen)
+	\item Change from turbos to vacion, close fore-vacuum valves (clean and dirty).
+	\item Open V2, V4 and V11.
+	\item Open V1 and V4 above the box (pump unused lines).
 \end{itemize}
-
 
 
 
